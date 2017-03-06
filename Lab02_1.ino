@@ -1,7 +1,6 @@
 // Lab02_1
 // 使用for迴圈的跑馬燈程式
-//
-// 每個 LED 正極接到 Pin 0 - 7, 負極接地
+
 const byte startPin = 1;
 const byte endPin = 8;
 
@@ -22,15 +21,24 @@ for (i=startPin; i<= endPin; i++) {
 digitalWrite(i,LOW);
 }
 
-// 點亮 LED
-digitalWrite(lightPin, HIGH);
-delay (100);
+  
+  for(lightPin=1;lightPin<8;lightPin++)
+{
+ // 點亮 LED 
+  digitalWrite(lightPin, HIGH);
+  delay (100);
 
-
-if (lightPin < endPin) {
-lightPin ++;
-} else {
-lightPin = startPin;
+  digitalWrite(lightPin, LOW);    
+  delay(100);  
 }
+  
+ 
+  for(lightPin=8;lightPin>1;lightPin--)
+  {
+   digitalWrite(lightPin, HIGH);
+   delay (100);
 
-}
+  digitalWrite(lightPin, LOW);    
+  delay(100); 
+  }
+
